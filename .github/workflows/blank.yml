@@ -36,7 +36,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: cache hello
         id: hello
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with: 
           path: hello.txt
           key: "{{ steps.year-week.outputs.date }}"
