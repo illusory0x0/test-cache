@@ -38,7 +38,7 @@ jobs:
         id: hello
         uses: actions/cache@v4
         with: 
-          path: hello.txt
+          path: ./hello.txt
           key: "{{ steps.year-week.outputs.date }}"
 
       # Runs a set of commands using the runners shell
