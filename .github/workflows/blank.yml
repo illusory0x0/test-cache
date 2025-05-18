@@ -28,3 +28,6 @@ jobs:
       - uses: chawyehsu/setup-moonup@v1
         with:
           moonbit-version: latest # optional
+
+
+      - run: moon version --all
