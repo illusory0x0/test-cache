@@ -25,25 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - name: Year and Week number
-        if: ${{ matrix.os.name != 'windows-latest' }} 
-        id: year-week
-        run: |
-          echo "date=$(/bin/date -u "+%Y-%V")" >> $GITHUB_OUTPUT
-        shell: bash 
-
-        
-      # Runs a single command using the runners shell
-      - name: cache hello
-        id: hello
-        uses: actions/cache@v4
-        with: 
-          path: ./hello.txt
-          key: "{{ steps.year-week.outputs.date }}"
-
-      # Runs a set of commands using the runners shell
-      - name: hello
-        if: ${{ steps.cache-moonbit-toolchain-stable.outputs.cache-hit != 'true' }}
-        run: |
-          echo hello >> hello.txt
-          cat hello.txt
+      - uses: chawyehsu/setup-moonup@v1
+        with:
+          moonbit-version: latest # optional
